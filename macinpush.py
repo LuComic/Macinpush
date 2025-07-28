@@ -4,7 +4,7 @@ import stat
 
 # Expanduser gives the full file path
 HOOKS_DIR = os.path.expanduser("~/.git-templates/hooks")
-POST_PUSH_PATH = os.path.join(HOOKS_DIR, "post-push")
+PRE_PUSH_PATH = os.path.join(HOOKS_DIR, "pre-push")
 
 HOOK_SCRIPT = """#!/usr/bin/env python3
 import subprocess
@@ -33,14 +33,14 @@ if __name__ == "__main__":
 
 def setup_hook():
     os.makedirs(HOOKS_DIR, exist_ok=True)
-    with open(POST_PUSH_PATH, "w") as f:
+    with open(PRE_PUSH_PATH, "w") as f:
         f.write(HOOK_SCRIPT)
     # Adds to the file permissions to make it executable
-    os.chmod(POST_PUSH_PATH, os.stat(POST_PUSH_PATH).st_mode | stat.S_IEXEC)
+    os.chmod(PRE_PUSH_PATH, os.stat(PRE_PUSH_PATH).st_mode | stat.S_IEXEC)
 
     # Configure Git to use this for new reops
     os.system(f'git config --global init.templatedir "{os.path.expanduser("~/.git-templates")}"')
-    print(f"[+] Git global post-push hook installed at {POST_PUSH_PATH}")
+    print(f"[+] Git global pre-push hook installed at {PRE_PUSH_PATH}")
 
 if __name__ == "__main__":
     setup_hook()
