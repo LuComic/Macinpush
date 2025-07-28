@@ -12,8 +12,8 @@ list_of_choices = [
 
 def run():
     chosen = random.choice(list_of_choices)
-    notification_message = f"You pushed on Git!\n{chosen}"
-    new_message = notification_message.replace('"', '\\"')
+    notification_message = f'You pushed on Git!\n{chosen}'
+    new_message = notification_message.replace('"', '\"')
     apple_script = f'display notification "{new_message}" with title "Macinpush"'
     
     subprocess.run(['osascript', '-e', apple_script])
