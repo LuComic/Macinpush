@@ -4,4 +4,4 @@ Macinpush is a fun reminder for yourself after you've made a push with Git. Look
 
 ## Usage
 
-Run clone the repo and run the macinpush python file
+Clone the repo and run the macinpush python file.
