@@ -39,7 +39,7 @@ def setup_hook():
     os.chmod(POST_PUSH_PATH, os.stat(POST_PUSH_PATH).st_mode | stat.S_IEXEC)
 
     # Configure Git to use this for new reops
-    os.system('git config --global init.templatedir "~/.git-templates"')
+    os.system(f'git config --global init.templatedir "{os.path.expanduser("~/.git-templates")}"')
     print(f"[+] Git global post-push hook installed at {POST_PUSH_PATH}")
 
 if __name__ == "__main__":
