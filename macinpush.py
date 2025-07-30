@@ -31,6 +31,7 @@ if __name__ == "__main__":
     run()
 """
 
+# The main function that creates the python file 'pre-push' 
 def setup_hook():
     os.makedirs(HOOKS_DIR, exist_ok=True)
     with open(PRE_PUSH_PATH, "w") as f:
