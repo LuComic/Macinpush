@@ -18,7 +18,7 @@ list_of_choices = [
     'Enjoy some Netflix now',
     'Admire your push on GitHub',
     'Read your favourite book now',
-    'Enjoy a little break now',
+    'Take a little break now',
     'Touch some grass now'
 ]
 
