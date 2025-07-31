@@ -4,7 +4,8 @@ Macinpush is a fun reminder for yourself after you've made a push with Git. Look
 
 ## Usage
 
-Clone the repo and run the macinpush python file.
+1. Have a mac, since it uses Apple script to generate the notification and also path finding is unix based. 
+2. Clone the repo and run the macinpush python file.
 
 ## How does it work?
 
