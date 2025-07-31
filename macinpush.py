@@ -24,8 +24,8 @@ list_of_choices = [
 
 def generate_the_notification():
     chosen = random.choice(list_of_choices)
-    notification_message = f'You pushed on Git!\\\\n{remote_url}\\\\n{chosen}'
-    apple_script = f'display notification "{notification_message}" with title "Macinpush"'
+    notification_message = f'You pushed on Git!\\\\n{chosen}'
+    apple_script = f'display notification "{notification_message}" with title "Macinpush" subtitle "{remote_url}"'
     subprocess.run(['osascript', '-e', apple_script])
 
 def run():
