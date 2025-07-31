@@ -23,7 +23,7 @@ list_of_choices = [
 for line in sys.stdin:
     local_ref, local_sha1, remote_ref, remote_sha1 = line.strip().split()
     message = subprocess.check_output(
-        ['git', 'show', '--format=%B', '-s', local_sha1])
+        ['git', 'show', '--format=%B', '-s', remote_ref])
 
 def generate_the_notification():
     chosen = random.choice(list_of_choices)
