@@ -11,6 +11,8 @@ import subprocess
 import random
 import sys
 
+remote_url = sys.argv[2] # The remote destination, url
+
 list_of_choices = [
     'Go buy yourself an ice cream',
     'Enjoy some Netflix now',
@@ -20,14 +22,9 @@ list_of_choices = [
     'Touch some grass now'
 ]
 
-for line in sys.stdin:
-    local_ref, local_sha1, remote_ref, remote_sha1 = line.strip().split()
-    message = subprocess.check_output(
-        ['git', 'show', '--format=%B', '-s', remote_ref])
-
 def generate_the_notification():
     chosen = random.choice(list_of_choices)
-    notification_message = f'You pushed on Git!\\\\n{chosen}'
+    notification_message = f'You pushed on Git!\\\\n{remote_url}\\\\n{chosen}'
     apple_script = f'display notification "{notification_message}" with title "Macinpush"'
     subprocess.run(['osascript', '-e', apple_script])
 
