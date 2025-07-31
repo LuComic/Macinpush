@@ -9,6 +9,7 @@ PRE_PUSH_PATH = os.path.join(HOOKS_DIR, "pre-push")
 HOOK_SCRIPT = """#!/usr/bin/env python3
 import subprocess
 import random
+import sys
 
 list_of_choices = [
     'Go buy yourself an ice cream!',
@@ -17,6 +18,11 @@ list_of_choices = [
     'Read your favourite book now',
     'Enjoy a little break now'
 ]
+
+for line in sys.stdin:
+    local_ref, local_sha1, remote_ref, remote_sha1 = line.strip().split()
+    message = subprocess.check_output(
+        ['git', 'show', '--format=%B', '-s', local_sha1])
 
 def generate_the_notification():
     chosen = random.choice(list_of_choices)
