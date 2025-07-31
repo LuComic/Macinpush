@@ -12,11 +12,12 @@ import random
 import sys
 
 list_of_choices = [
-    'Go buy yourself an ice cream!',
+    'Go buy yourself an ice cream',
     'Enjoy some Netflix now',
     'Admire your push on GitHub',
     'Read your favourite book now',
-    'Enjoy a little break now'
+    'Enjoy a little break now',
+    'Touch some grass now'
 ]
 
 for line in sys.stdin:
